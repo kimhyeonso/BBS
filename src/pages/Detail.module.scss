@@ -1,0 +1,167 @@
+@use '../_mixin.scss' as m;
+
+.detailBox {
+  @include m.size(90%, auto);
+  @include m.font;
+  @include m.padding(50px, 60px);
+  @include m.radius(28px);
+
+  max-width: 900px;
+  margin: 70px auto;
+
+  background: #fff;
+  border: 1px solid rgba(232, 117, 154, .2);
+  box-shadow: 0 20px 45px rgba(232, 117, 154, .12);
+}
+
+.detailTitle {
+  text-align: center;
+  font-size: 2rem;
+  @include m.fontWe;
+  margin-bottom: 50px;
+
+  &::after {
+    content: "";
+    display: block;
+    @include m.size(45px, 4px);
+    margin: 15px auto 0;
+    @include m.radius(10px);
+    background: #e8759a;
+  }
+}
+
+.detailInfo {
+  p {
+    @include m.padding(18px, 0);
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+
+    strong {
+      display: inline-block;
+      @include m.size(90px, auto);
+      color: #e8759a;
+      @include m.fontWe;
+    }
+  }
+}
+
+.contentBox {
+  margin-top: 40px;
+
+  h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #e8759a;
+    @include m.fontWe;
+  }
+
+  div{
+    border: 1px solid #eee;
+    @include m.padding(20px , 50px);
+    @include m.border10;
+  }
+}
+
+.content {
+  @include m.padding(25px, 25px);
+  @include m.radius(18px);
+
+  min-height: 220px;
+  line-height: 1.8;
+
+  border: 1px solid #eee;
+  background: #fafafa;
+}
+
+.input {
+  @include m.size(100%, 55px);
+  @include m.padding(0, 18px);
+  @include m.font;
+  @include m.radius(12px);
+  @include m.transition;
+
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  outline: none;
+
+  &:focus {
+    border-color: #e8759a;
+    box-shadow: 0 0 0 4px rgba(232, 117, 154, .15);
+  }
+}
+
+.textarea {
+  @include m.size(100%, 220px);
+  @include m.padding(18px, 18px);
+  @include m.font;
+  @include m.radius(14px);
+  @include m.transition;
+
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  resize: none;
+  outline: none;
+
+  &:focus {
+    border-color: #e8759a;
+    box-shadow: 0 0 0 4px rgba(232, 117, 154, .15);
+  }
+}
+
+.buttonBox {
+  @include m.flex;
+  gap: 15px;
+  margin-top: 40px;
+
+  button,
+  a {
+    @include m.padding(13px, 35px);
+    @include m.font;
+    @include m.fontWe;
+    @include m.radius(12px);
+    @include m.transition;
+
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+
+  }
+
+  button:first-child {
+    background: linear-gradient(135deg, #e8759a, #ef5f90);
+    color: #fff;
+  }
+
+  button:last-child,
+  a {
+    background: #fff;
+    color: #e8759a;
+    border: 1px solid #e8759a;
+  }
+
+  button:hover,
+  a:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 768px) {
+  .detailBox {
+    @include m.size(90%, auto);
+    @include m.padding(35px, 20px);
+  }
+
+  .detailTitle {
+    font-size: 1.6rem;
+  }
+
+  .buttonBox {
+    flex-direction: column;
+
+    button,
+    a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

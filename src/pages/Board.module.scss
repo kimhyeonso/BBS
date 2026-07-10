@@ -1,0 +1,77 @@
+@use '../_mixin.scss' as m;
+
+main {
+  @include m.size(100%, auto);
+  @include m.font;
+  background: #fff;
+
+  .topBtn{
+    @include m.size(180px, auto);
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    overflow: hidden;
+    cursor: pointer;
+
+    animation: float 2.5s ease-in-out infinite;
+    transition: transform .3s;
+
+    &:hover {
+        animation-play-state: paused; // 마우스를 올리면 흔들림 멈춤
+        transform: scale(1.08);
+    }
+  }
+
+  @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-12px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+  h2 {
+    position: relative;
+    @include m.padding(70px, 20px);
+    text-align: center;
+    font-size: clamp(2.8rem, 2.5vw , 1.8rem);
+    @include m.fontWe;
+    color: #db1c85;
+    letter-spacing: 1px;
+
+    background-image: url(../assets/image02.jpg);
+    box-shadow: 0 8px 25px rgba(232, 117, 154, 0.25);
+
+    &::after {
+      content: "간단한 CRUD 기능을 구현한 게시판입니다.";
+      display: block;
+      margin-top: 15px;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    .topBtn{
+        @include m.size(100px, auto);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      @include m.padding(55px, 15px);
+
+      &::after {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

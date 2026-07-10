@@ -1,0 +1,182 @@
+@use '../_mixin.scss' as m;
+
+.writerBox{
+    @include m.size(100%, auto);
+    @include m.flexColumn;
+    @include m.font;
+
+    padding: 0 0 70px;
+    background: #fff;
+    color: #111;
+
+    h3{
+        @include m.size(15%, auto);
+        @include m.padding(40px , 0);
+        @include m.fontWe;
+        text-align: center;
+        font-size: 2rem;
+        color: #222;
+        border-bottom: 2px solid #e8759a;
+    }
+
+    .wcontent{
+        @include m.size(75%, auto);
+        @include m.padding(30px ,70px);
+        margin-top: 25px;
+        @include m.border28;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(232, 117, 154, 0.25);
+        box-shadow: 0 20px 50px rgba(232, 117, 154, 0.12);
+
+        .titleBox{
+            @include m.size(100%, auto);
+            padding-bottom: 35px;
+            border-bottom: 1px solid rgba(232, 117, 154, 0.35);
+            
+            .title,
+            .writer {
+                @include m.flexColumnStart;
+                gap: 12px;
+            }
+
+            .writer {
+                margin-top: 28px;
+            }
+
+            label {
+                font-size: 1.15rem;
+                @include m.fontWe;
+            }
+
+            input {
+                @include m.size(100%,54px);
+                @include m.padding(0 , 14px);
+                border: 1px solid #ddd;
+                @include m.border10;
+                background: #fff;
+                @include m.font;
+                font-size: 1rem;
+                outline: none;
+                transition: 0.25s;
+
+                &::placeholder {
+                color: #aaa;
+                }
+
+                &:focus {
+                border-color: #e8759a;
+                box-shadow: 0 0 0 4px rgba(232, 117, 154, 0.13);
+                }
+            }
+        }
+
+        .txtBox {
+            width: 100%;
+            margin-top: 35px;
+
+            .txt {
+                @include m.flexColumnStart;
+                gap: 12px;
+
+                label {
+                font-size: 1.15rem;
+                @include m.fontWe;
+                }
+
+                textarea {
+                @include m.size(100%,230px);
+                padding: 18px;
+                border: 1px solid #ddd;
+                border-radius: 14px;
+                background: #fff;
+                @include m.font;
+                font-size: 1rem;
+                resize: none;
+                outline: none;
+                transition: 0.25s;
+
+                &::placeholder {
+                    color: #aaa;
+                }
+
+                &:focus {
+                    border-color: #e8759a;
+                    box-shadow: 0 0 0 4px rgba(232, 117, 154, 0.13);
+                }
+            }
+        }
+    }
+}
+
+    button {
+        margin-top: 35px;
+        @include m.padding(14px, 42px);
+        border: none;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #e8759a, #df477b);
+        color: #fff;
+        @include m.font;
+        font-size: 1.05rem;
+        @include m.fontWe;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(232, 117, 154, 0.28);
+        transition: 0.25s;
+
+        &:hover {
+        transform: translateY(-3px);
+        background: linear-gradient(135deg, #df477b, #d8376f);
+        box-shadow: 0 14px 30px rgba(232, 117, 154, 0.38);
+        }
+    }
+}
+
+// 모바일
+@media (max-width: 768px) {
+  .writerBox {
+    padding-bottom: 45px;
+
+    h3 {
+      @include m.padding(20px, 0);
+      font-size: 1.6rem;
+      white-space: nowrap;
+    }
+
+    .wcontent {
+      @include m.size(88%, auto);
+      margin-top: 35px;
+      @include m.padding(35px, 24px);
+      border-radius: 22px;
+
+      .titleBox {
+        padding-bottom: 28px;
+
+        label {
+          font-size: 1rem;
+        }
+
+        input {
+          @include m.size(auto, 48px);
+        }
+      }
+
+      .txtBox {
+        margin-top: 28px;
+
+        .txt {
+          label {
+            font-size: 1rem;
+          }
+
+          textarea {
+            height: 200px;
+          }
+        }
+      }
+    }
+
+    button {
+      @include m.size(88%, auto);
+      @include m.padding(14px, 0);
+    }
+  }
+}

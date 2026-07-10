@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'IsYun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@mixin size($w, $h){
+    width: $w;
+    height: $h;
+}
+
+@mixin flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexColumnStart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@mixin font{
+    font-family: 'IsYun';
+}
+
+@mixin fontWe{
+    font-weight: bold;
+}
+
+@mixin padding($vertical, $horizontal) {
+  padding: $vertical $horizontal;
+}
+
+@mixin radius($r){
+    border-radius: $r;
+}
+
+@mixin transition($time: .3s){
+    transition: all $time;
+}
+
+@mixin border10 {
+    border-radius: 10px;
+}
+
+@mixin border28 {
+    border-radius: 28px;
+}

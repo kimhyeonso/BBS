@@ -5,7 +5,6 @@ import usePostStore from './store/postStore'
 
 import Board from './pages/Board'
 import Detail from './pages/Detail'
-import AuthForm from './components/AuthForm'
 
 const App = () => {
   // const [posts, setPosts] = useState([
@@ -38,10 +37,7 @@ const App = () => {
   //   setPosts(newPosts)
   // }
 
-  const user = useAuthStore((state) => state.user)
-  const initialized = useAuthStore((state) => state.initialized)
   const listenAuthState = useAuthStore((state) => state.listenAuthState)
-  const signOut = useAuthStore((state) => state.signOut)
   const fetchPosts = usePostStore((state) => state.fetchPosts)
 
   useEffect(()=>{
@@ -56,16 +52,6 @@ const App = () => {
   }, [fetchPosts])
   return (
     <div>
-      <header>
-      {user ? (
-        <>
-          <p>{user.email}</p>
-          <button onClick={signOut}>로그아웃</button>
-        </>
-        ) : initialized ? (
-          <AuthForm/>
-        ) : (<p>"로그인 상태 확인중"</p>)}
-      </header>
       <Routes>
         <Route path='/' element={<Board />} />
         <Route path='/detail/:id' element={<Detail />} />

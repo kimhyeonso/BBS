@@ -36,7 +36,7 @@ main {
         }
     }
 
-  h2 {
+  > h2 {
     position: relative;
     @include m.padding(70px, 20px);
     text-align: center;
@@ -57,6 +57,58 @@ main {
       color: rgba(0, 0, 0, 0.7);
     }
   }
+
+  .authBox {
+    @include m.size(75%, auto);
+    margin: 35px auto 30px;
+    @include m.padding(28px ,36px);
+    @include m.border28;
+    background: #fff7fa;
+    border: 1px solid rgba(232, 117, 154, 0.25);
+    box-shadow: 0 14px 35px rgba(232, 117, 154, 0.1);
+    text-align: center;
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: 1.5rem;
+      color: #db1c85;
+      @include m.fontWe;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    input {
+      @include m.padding(12px ,14px);
+      border: 1px solid rgba(232, 117, 154, 0.35);
+      @include m.border10;
+      @include m.font;
+      outline: none;
+
+      &:focus {
+        border-color: #e85f8d;
+      }
+    }
+
+    button {
+      @include m.padding(12px ,18px);
+      border: none;
+      @include m.border10;
+      background: #e85f8d;
+      color: #fff;
+      @include m.font;
+      cursor: pointer;
+    }
+
+    p {
+      margin-bottom: 14px;
+      color: #333;
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -65,12 +117,26 @@ main {
         @include m.size(100px, auto);
     }
 
-    h2 {
+    > h2 {
       font-size: 1.8rem;
       @include m.padding(55px, 15px);
 
       &::after {
         font-size: 0.9rem;
+      }
+    }
+
+    .authBox {
+      @include m.size(90%, auto);
+      @include m.padding(24px ,18px);
+
+      form {
+        flex-direction: column;
+      }
+
+      input,
+      button {
+        width: 100%;
       }
     }
   }
